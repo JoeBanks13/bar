@@ -53,12 +53,14 @@ def get_ws() -> str:
         # U - urgent focused desktop
         # u - urgent unfocused desktop
 
-        if desktop[0] in ["O", "o", "F"]:
+        if desktop[0] in ["o"]:
             color = (BG_SEC_COL, FG_COL)
         elif desktop[0] in ["U", "u"]:
             color = (BG_COL, HL_COL)
-        else:
+        elif desktop[0] in ["F", "O"]:
             color = (BG_COL, FG_SEC_COL)
+        else:
+            color = (BG_COL, BG_SEC_COL)
 
         ws_string += (
             f"%{{B{color[0]}}}"
