@@ -5,7 +5,7 @@ Functions to get elements which make up the bar
 from .constants import (
     BG_COL, BG_SEC_COL, FG_COL, FG_SEC_COL,
     HL_COL, BATTERY_PLACEHOLDER, WORKSPACE_PLACEHOLDER,
-    CLOCK_PLACEHOLDER, VOLUME_PLACEHOLDER
+    CLOCK_PLACEHOLDER, VOLUME_PLACEHOLDER, GENERAL_PLACEHOLDER
 )
 
 import subprocess
@@ -95,3 +95,31 @@ def get_volume() -> str:
                  f"{VOLUME_PLACEHOLDER}"
                  f"\uf028 {volume}"
                  f"{VOLUME_PLACEHOLDER}")
+
+
+def now_playing() -> str:
+    artist = _run_command("playerctl metadata xesam:artist")
+    song = _run_command("playerctl metadata xesam:title")
+
+    if song == "":
+        return reset(f"%{{B{BG_SEC_COL}}}"
+                     f"%{{F{FG_COL}}}"
+                     f"{GENERAL_PLACEHOLDER}"
+                     f"None"
+                     f"{GENERAL_PLACEHOLDER}")
+
+    string = f"{song}"
+
+    if artist != "":
+        string += f" - {artist}"
+
+    if len(string) > 40:
+        string = string[0:37] + "..."
+
+    string = "\uf001 " + string
+
+    return reset(f"%{{B{BG_SEC_COL}}}"
+                 f"%{{F{FG_COL}}}"
+                 f"{GENERAL_PLACEHOLDER}"
+                 f"{string}"
+                 f"{GENERAL_PLACEHOLDER}")
