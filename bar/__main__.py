@@ -7,9 +7,9 @@ import time
 
 from .elements import get_battery, get_ws, get_date, get_volume
 from .constants import (
-                           BG_COL, FG_COL, HL_COL,
-                           GENERAL_PLACEHOLDER, TEXT_FONT, ICON_FONT
-                        )
+    BG_COL, FG_COL, HL_COL,
+    GENERAL_PLACEHOLDER, TEXT_FONT, ICON_FONT
+)
 
 if __name__ == "__main__":
     lemonbar = subprocess.Popen(f"lemonbar "
