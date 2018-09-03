@@ -102,11 +102,7 @@ def now_playing() -> str:
     song = _run_command("playerctl metadata xesam:title")
 
     if song == "":
-        return reset(f"%{{B{BG_SEC_COL}}}"
-                     f"%{{F{FG_COL}}}"
-                     f"{GENERAL_PLACEHOLDER}"
-                     f"None"
-                     f"{GENERAL_PLACEHOLDER}")
+        return ""
 
     string = f"{song}"
 
