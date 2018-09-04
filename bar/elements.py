@@ -54,11 +54,11 @@ def get_ws() -> str:
         # u - urgent unfocused desktop
 
         if desktop[0] in ["o"]:
-            color = (BG_SEC_COL, FG_COL)
+            color = (BG_COL, FG_SEC_COL)
         elif desktop[0] in ["U", "u"]:
             color = (BG_COL, HL_COL)
         elif desktop[0] in ["F", "O"]:
-            color = (BG_COL, FG_SEC_COL)
+            color = (BG_SEC_COL, FG_COL)
         else:
             color = (BG_COL, BG_SEC_COL)
 
