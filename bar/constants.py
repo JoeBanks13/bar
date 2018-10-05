@@ -6,9 +6,9 @@ Bar configuration constants
 # Colours
 #
 
-BG_COL = "#282c34"
-BG_SEC_COL = "#373c49"
-FG_COL = "#8c8c8c"
+BG_COL = "#1b1b1b"
+BG_SEC_COL = "#262626"
+FG_COL = "#9e9e9e"
 FG_SEC_COL = "#616161"
 HL_COL = "#7cafc2"
 
