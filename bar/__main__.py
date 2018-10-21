@@ -56,8 +56,12 @@ def feed_lemonbar(lemonbar: subprocess.Popen):
 def consume_lemonbar(lemonbar: subprocess.Popen):
     while True:
         data = lemonbar.stdout.readline().decode().strip()
+        print(data)
         if data.strip() == "restart":
             restart()
+        elif data.strip().startswith("switch-"):
+            desktop = data.strip()[7:]
+            os.popen(f"bspc desktop {desktop} -f")
 
 
 if __name__ == "__main__":
