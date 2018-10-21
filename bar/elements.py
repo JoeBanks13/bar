@@ -63,11 +63,13 @@ def get_ws() -> str:
             color = (BG_COL, BG_SEC_COL)
 
         ws_string += (
+            f"%{{A:switch-{desktop[1:]}:}}"
             f"%{{B{color[0]}}}"
             f"%{{F{color[1]}}}"
             f"{WORKSPACE_PLACEHOLDER}"
             f"{desktop[1:]}"
             f"{WORKSPACE_PLACEHOLDER}"
+            f"%{{A}}"
         )
 
     return reset(ws_string)
