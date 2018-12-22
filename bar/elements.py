@@ -76,7 +76,7 @@ def get_ws() -> str:
 
 
 def get_date() -> str:
-    time = datetime.datetime.now().strftime("%H:%M:%S")
+    time = datetime.datetime.now().strftime("%a %d %b / %H:%M:%S")
 
     return reset(f"%{{B{BG_SEC_COL}}}"
                  f"%{{F{FG_COL}}}"
