@@ -56,7 +56,6 @@ def feed_lemonbar(lemonbar: subprocess.Popen):
 def consume_lemonbar(lemonbar: subprocess.Popen):
     while True:
         data = lemonbar.stdout.readline().decode().strip()
-        print(data)
         if data.strip() == "restart":
             restart()
         elif data.strip().startswith("switch-"):
